@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    @apply bg-gradient-to-b from-gray-950 to-gray-900;
+    @apply text-white;
+  }
+}
