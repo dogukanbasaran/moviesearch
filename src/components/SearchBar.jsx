@@ -1,9 +1,9 @@
 import { Search } from "@mui/icons-material";
 const SearchBar = () => {
   return (
-    <div className="rounded-xl border-none bg-gray-500/15 h-[50px] max-w-[700px] w-[100%] flex items-center">
+    <div className="rounded-xl border-none bg-gray-500/15 h-[50px] max-w-[700px] w-[90%] flex items-center">
       <input
-        className="h-[100%] w-[93%] outline-none px-[10px]"
+        className="h-[100%] w-[93%] outline-none px-[10px] text-[1.25rem]"
         type="text"
         placeholder="search a movie name"
       />

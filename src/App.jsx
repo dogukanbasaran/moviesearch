@@ -1,18 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
-// import Header from "./components/Header";
-// import Footer from "./components/Footer";
-
 import Home from "./pages/Home";
+import Movies from "./pages/Movies";
 
 const App = () => {
   return (
     <BrowserRouter>
-      {/* <Header /> */}
       <Routes>
         <Route index element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
       </Routes>
-      {/* <Footer /> */}
     </BrowserRouter>
   );
 };
