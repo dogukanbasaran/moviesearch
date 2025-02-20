@@ -14,8 +14,9 @@ const App = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_KEY = import.meta.env.VITE_API_KEY;
-  const API_URL = `https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=${query}`;
+  // const API_KEY = import.meta.env.VITE_API_KEY;
+
+  const API_URL = `https://www.omdbapi.com/?i=tt3896198&apikey=5f004e13&s=${query}`;
 
   const searchMovie = async () => {
     if (!query) return;
