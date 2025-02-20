@@ -1,7 +1,19 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { CircularProgress } from "@mui/material";
 
 const Hero = () => {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  function goToMovies() {
+    setLoading(true);
+    setTimeout(() => {
+      navigate("/movies");
+    }, 2000);
+  }
+
   return (
     <div className="h-[auto] w-[96%] flex flex-col justify-center items-center gap-[20px]">
       <h1 className="font-[600] text-[3rem] min-[500px]:text-[4rem] min-[768px]:text-[5rem] text-center">
@@ -15,19 +27,20 @@ const Hero = () => {
         Explore now and never miss a great film!
       </h2>
       <button
+        onClick={goToMovies}
         className="
         mt-[50px] bg-gradient-to-r from-sky-900 to-sky-700 font-[600] min-[500px]:text-[1.25rem] rounded-[30px]
-        cursor-pointer flex justify-center items-center gap-[10px]
+        cursor-pointer flex justify-center items-center gap-[10px] h-[50px] min-[500px]:h-[60px] w-[150px] min-[500px]:w-[180px]
         hover:shadow-[0px_0px_20px_rgba(0,0,0,0.1)] hover:scale-[105%] shadow-sky-700/50 transition-all duration-300 ease-in-out
         "
       >
-        <Link
-          to="/movies"
-          className="py-[10px] min-[500px]:py-[10px] px-[15px] min-[500px]:px-[30px]"
-        >
-          {" "}
-          Find Movies <ArrowForwardIcon />
-        </Link>
+        {loading == true ? (
+          <CircularProgress color="white" size="2rem" />
+        ) : (
+          <span className="flex justify-center items-center gap-[10px]">
+            Find Movies {<ArrowForwardIcon />}
+          </span>
+        )}
       </button>
     </div>
   );

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import MovieDetail from "./pages/MovieDetail";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   const movies = [
@@ -32,6 +33,7 @@ const App = () => {
           path="/movies/:movieId"
           element={<MovieDetail movies={movies} />}
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
