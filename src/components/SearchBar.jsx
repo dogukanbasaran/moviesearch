@@ -7,7 +7,7 @@ const SearchBar = () => {
         type="text"
         placeholder="search a movie name"
       />
-      <div className="h-[100%] w-[7%] flex justify-center items-center">
+      <div className="h-[100%]  w-[50px] flex justify-center items-center">
         <Search />
       </div>
     </div>
