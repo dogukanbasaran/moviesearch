@@ -5,7 +5,7 @@ const MovieContext = createContext();
 
 const MovieProvider = ({ children }) => {
   const [query, setQuery] = useState("");
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -16,16 +16,16 @@ const MovieProvider = ({ children }) => {
 
     try {
       setError("");
-      const response = await axios.get(`${API_URL}`);
+      const response = await axios.get(API_URL);
       if (response.data.Response === "True") {
-        setData(response.data);
+        setData(response.data.Search);
       } else {
-        setData(null);
+        setData([]);
         setError("Movie(s) not found.");
       }
     } catch (error) {
       setError(`Error: ${error}`);
-      setData(null);
+      setData([]);
     }
   };
 
