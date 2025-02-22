@@ -3,9 +3,11 @@ const Movie = ({ id, name, poster }) => {
   return (
     <div
       className={`group opacity-75 hover:opacity-100 h-[400px] w-[300px] bg-center rounded-2xl flex items-end justify-center`}
-      style={{ backgroundImage: `URL(${poster})` }}
+      style={{
+        backgroundImage: `URL(${poster != "N/A" ? poster : "noimage.jpg"})`,
+      }}
     >
-      <div className="w-[100%]  bg-black/75 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 duration-300 flex flex-col items-center gap-[5px]">
+      <div className="translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 duration-300 flex flex-col items-center gap-[5px] py-[10px] w-[100%]  bg-black/75">
         <span className="font-[600] text-[1.25rem] text-center w-[100%]">
           {name}
         </span>

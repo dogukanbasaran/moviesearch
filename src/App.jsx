@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { CircularProgress } from "@mui/material";
@@ -36,13 +36,11 @@ const App = () => {
     }
   };
 
-  const handleFetchingData = (e) => {
+  const handleFetchingData = async (e) => {
     if (e.key === "Enter") {
       setLoading(true);
-      setTimeout(() => {
-        searchMovie();
-        setLoading(false);
-      }, 2000);
+      await searchMovie();
+      setLoading(false);
     }
   };
 
