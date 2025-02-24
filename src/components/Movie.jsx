@@ -7,7 +7,7 @@ const Movie = ({ id, title, poster }) => {
   return (
     <div
       className={`group opacity-75 hover:opacity-100 h-[400px] w-[300px]  bg-center rounded-2xl flex items-end justify-center duration-300 border ${
-        theme === "light" ? "border-gray-950" : "border-gray-800/50"
+        theme === "dark" ? "border-slate-200/20" : "border-slate-950/20"
       }`}
       style={{
         backgroundImage: `URL(${poster != "N/A" ? poster : "noimage.jpg"})`,

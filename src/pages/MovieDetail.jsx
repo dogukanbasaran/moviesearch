@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import axios from "axios";
 import { ThemeContext } from "../contexts/ThemeContext";
-import StarIcon from "@mui/icons-material/Star";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -33,15 +32,11 @@ const MovieDetail = () => {
   }
 
   return (
-    <div
-      className={`min-h-[100vh] h-[auto] py-[50px] flex flex-col items-center justify-center gap-[40px] duration-300 ${
-        theme === "dark"
-          ? "bg-gray-950 text-white"
-          : "bg-gray-200 text-gray-950"
-      }`}
-    >
+    <>
       <div
-        className={`h-[auto] min-h-[500px] w-[90%] max-w-[700px] min-[550px]:text-[1.50rem] border  rounded-2xl p-4 gap-[20px] flex flex-col`}
+        className={`h-[auto] min-h-[500px] w-[90%] max-w-[700px] min-[550px]:text-[1.50rem] border ${
+          theme === "dark" ? "border-slate-200/20" : "border-slate-950/20"
+        } rounded-2xl p-4 gap-[20px] flex flex-col`}
       >
         <span className=" w-[100%] flex justify-center text-[2rem] min-[550px]:text-[3rem] font-[600]">
           {movieDetail.Title}
@@ -85,10 +80,8 @@ const MovieDetail = () => {
       >
         Back to previous page
       </button>
-    </div>
+    </>
   );
 };
-
-// {<StarIcon sx={{ color: "yellow" }} />}
 
 export default MovieDetail;
