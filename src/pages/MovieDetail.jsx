@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import axios from "axios";
+import { ThemeContext } from "../contexts/ThemeContext";
 import StarIcon from "@mui/icons-material/Star";
 
 const MovieDetail = () => {
   const { id } = useParams();
   const [movieDetail, setMovieDetail] = useState("");
+  const { theme } = useContext(ThemeContext);
 
   const fetchMovieDetail = async () => {
     try {
@@ -31,8 +33,16 @@ const MovieDetail = () => {
   }
 
   return (
-    <div className="min-h-[100vh] h-[auto] py-[50px] flex flex-col items-center justify-center gap-[40px]">
-      <div className=" h-[auto] min-h-[500px] w-[90%] max-w-[700px] min-[550px]:text-[1.50rem] bg-gray-800/25 rounded-2xl p-4 gap-[20px] flex flex-col">
+    <div
+      className={`min-h-[100vh] h-[auto] py-[50px] flex flex-col items-center justify-center gap-[40px] duration-300 ${
+        theme === "dark"
+          ? "bg-gray-950 text-white"
+          : "bg-gray-200 text-gray-950"
+      }`}
+    >
+      <div
+        className={`h-[auto] min-h-[500px] w-[90%] max-w-[700px] min-[550px]:text-[1.50rem] border  rounded-2xl p-4 gap-[20px] flex flex-col`}
+      >
         <span className=" w-[100%] flex justify-center text-[2rem] min-[550px]:text-[3rem] font-[600]">
           {movieDetail.Title}
         </span>
@@ -40,7 +50,7 @@ const MovieDetail = () => {
           <img
             src={`${movieDetail.Poster} != "N/A" ? ${movieDetail.Poster} : "/noimage.jpg"`}
             alt="movie poster"
-            className="w-[120px] min-[550px]:w-[300px]"
+            className="w-[120px] min-[550px]:w-[300px] rounded-2xl"
           />
           <div className="flex flex-col">
             <span>
@@ -70,7 +80,7 @@ const MovieDetail = () => {
       </div>
       <button
         onClick={backToPrev}
-        className="bg-gradient-to-r from-sky-900 to-sky-700 font-[600] min-[500px]:text-[1.25rem] rounded-[30px] py-[10px] px-[20px]
+        className="bg-gradient-to-r from-sky-900 to-sky-700 font-[600] min-[500px]:text-[1.25rem] text-white rounded-[30px] py-[10px] px-[20px]
         cursor-pointer flex justify-center items-center hover:shadow-[0px_0px_20px_rgba(0,0,0,0.1)] hover:scale-[105%] shadow-sky-700/50 transition-all duration-300 ease-in-out"
       >
         Back to previous page

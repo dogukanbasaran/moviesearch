@@ -1,14 +1,19 @@
 import { Link } from "react-router";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const Movie = ({ id, title, poster }) => {
+  const { theme } = useContext(ThemeContext);
   return (
     <div
-      className={`group opacity-75 hover:opacity-100 h-[400px] w-[300px]  bg-center rounded-2xl flex items-end justify-center`}
+      className={`group opacity-75 hover:opacity-100 h-[400px] w-[300px]  bg-center rounded-2xl flex items-end justify-center duration-300 border ${
+        theme === "light" ? "border-gray-950" : "border-gray-800/50"
+      }`}
       style={{
         backgroundImage: `URL(${poster != "N/A" ? poster : "noimage.jpg"})`,
       }}
     >
-      <div className="translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 duration-300 flex flex-col items-center gap-[5px] py-[10px] w-[100%]  bg-black/75">
+      <div className=" flex flex-col items-center gap-[5px] py-[10px] w-[100%] bg-black/75 rounded-b-2xl text-white">
         <span className="font-[600] text-[1.25rem] text-center w-[100%]">
           {title}
         </span>
